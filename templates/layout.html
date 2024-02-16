@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  {% if title %}
+  <title>Samu - {{title}}</title>
+  {% else %}
+  <title>Samu- Portfolio</title>
+
+  {% endif %}
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+  <!-- Favicons -->
+
+  <!-- <link rel="shortcut icon" href=" {{ url_for('static' , filename='assets/img/favicon.ico')}}"> -->
+  <link rel="shortcut icon" href="#" />
+  <link href="{{ url_for('static' , filename='assets/img/favicon.png')}}" rel="icon">
+  <link href="{{ url_for('static' , filename='assets/img/apple-touch-icon.png')}}
+" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="    {{ url_for('static' , filename='assets/vendor/aos/aos.css')}}
+" rel="stylesheet" />
+
+  <link href="    {{ url_for('static' , filename='assets/vendor/bootstrap/css/bootstrap.min.css')}}
+" rel="stylesheet" />
+  <link href=" {{ url_for('static' , filename='assets/vendor/bootstrap-icons/bootstrap-icons.css')}}
+" rel="stylesheet" />
+  <link href="{{ url_for('static' , filename='assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet" />
+
+  <link href="{{ url_for('static' , filename='assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet" />
+  <link href=" {{ url_for('static' , filename='assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static' , filename='assets/css/style.css')}}" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="logo me-auto me-lg-0"><a href="{{ url_for('home') }}">Samiksha</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{{ url_for('home') }}" {% if active_page=='home' %}class="active" {% endif %}>Home</a></li>
+          <li><a href="{{ url_for('about') }}" {% if active_page=='about' %}class="active" {% endif %}>About</a></li>
+
+
+          <li><a href="{{ url_for('resume') }}" {% if active_page=='resume' %}class="active" {% endif %}>Resume</a></li>
+          <li><a href="{{ url_for('projects') }}" {% if active_page=='projects' %}class="active" {% endif
+              %}>Projects</a></li>
+          <li><a href="{{ url_for('contact') }}" {% if active_page=='contact' %}class="active" {% endif %}>Contact</a>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .nav-menu -->
+      <div class="header-social-links">
+        <a href="https://github.com/samikshalokhande" target="_blank" class="medium"><i class="bi bi-github"></i></a>
+
+        <a href="https://medium.com/@samikshalokhande" target="_blank" class="medium"><i class="bi bi-medium"></i></a>
+
+        <a href="https://www.linkedin.com/in/samikshalokhande/" target="_blank" class="linkedin"><i
+            class="bi bi-linkedin"></i></i></a>
+      </div>
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <div>{% block content %} {% endblock content %}</div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category , messages in messages %}
+      <div class='alert alert-{{category}}'>
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% else %}
+      {% endif %}
+  {% endwith %}
+  <!-- Optional JavaScript -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static' , filename='assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{ url_for('static' , filename='assets/vendor/php-email-form/validate.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src=" {{ url_for('static' , filename='assets/js/main.js')}}"></script>
+</body>
+
+</html>
